@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<title>N-Capas Parcial No 2</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style>
+	input,select{
+		margin-bottom:5px;
+	}
+</style>
+</head>
+<body>
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">N-Capas</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active">
+              	<a th:href="@{/index}">Inicio</a>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+<div class="container">
+	<!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <form method="post" th:action="@{/ingresarcatv}" th:object="${categoria}">
+		<h3>Registrar Libro</h3>
+		<table>
+			<tr>
+				<td>
+					<label for="scategoria">Nombre Categoría:</label>
+				</td>
+				<td>
+					<input id="scategoria" type="text" class="form-control" placeholder="Ingrese nombre" th:field="*{scategoria}" />
+				</td>
+				<td>
+					<span th:errors="*{scategoria}" style="color:red;"></span>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<a th:href="@{/}" class="btn btn-default">Regresar</a>
+				</td>
+				<td>
+					&nbsp;
+					<button type="submit" class="btn btn-success pull-right">
+		        		Guardar
+		        	</button>
+				</td>
+			</tr>
+		</table>
+    </form>
+      </div>
+</div>
+
+</body>
+</html>
